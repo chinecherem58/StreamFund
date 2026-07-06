@@ -1,0 +1,9 @@
+# Linker configuration for the GNU toolchain on Windows.
+# If you have MSVC Build Tools installed (link.exe), remove this section.
+# If you use LLVM/clang, change "gcc" to "clang".
+[target.x86_64-pc-windows-gnu]
+linker = "gcc"
+
+# WASM target flags — bulk-memory improves contract performance.
+[target.wasm32-unknown-unknown]
+rustflags = ["-C", "target-feature=+bulk-memory"]
